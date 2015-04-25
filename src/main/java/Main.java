@@ -8,7 +8,7 @@ import java.rmi.NotBoundException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, NotBoundException {
+    public static void mainNoMore(String[] args) throws IOException, NotBoundException {
         String brickName = "192.168.1.102";
         String filePath = "/Users/mullerp/dev/Mindstorms/LejosTest/EV3HelloWorld/target";
 
