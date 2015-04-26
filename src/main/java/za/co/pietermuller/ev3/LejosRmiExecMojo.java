@@ -2,12 +2,14 @@ package za.co.pietermuller.ev3;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Mojo;
 
 import java.io.File;
 
 /**
  * Goal which uploads and executes a Lejos application on a Mindstorms Brick.
  */
+@Mojo(name = "lejos-rmi-exec")
 public class LejosRmiExecMojo
     extends AbstractMojo
 {
