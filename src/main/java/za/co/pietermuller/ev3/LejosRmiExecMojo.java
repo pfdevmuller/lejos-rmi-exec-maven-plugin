@@ -40,14 +40,12 @@ public class LejosRmiExecMojo extends AbstractMojo {
             in.read(data);
             in.close();
 
-            getLog().info(String.format("Uploading %s to brick at %s...", targetFile.getName(), brickIP));
+            String destination = "/home/lejos/programs/" + targetFile.getName();
+            getLog().info(String.format("Uploading %s to brick %s...", targetFile.getName(), brickIP));
+            rmiMenu.uploadFile(destination, data);
+            getLog().info(String.format("Target has been uploaded to %s on %s.", destination, brickIP));
 
-            rmiMenu.uploadFile("/home/lejos/programs/" + targetFile.getName(), data);
-
-            getLog().info("Program has been uploaded");
-
-            getLog().info("Running program ...");
-
+            getLog().info(String.format("Launching %s on %s.", destination, brickIP));
             rmiMenu.runProgram(targetFile.getName().replace(".jar", ""));
         } catch (RemoteException e) {
             throw new MojoExecutionException("Mojo failed with: " + e.getMessage(), e);
